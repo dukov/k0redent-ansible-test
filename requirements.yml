@@ -1,0 +1,4 @@
+collections:
+  - name: https://github.com/dukov/ansible-collections-k0rdent.git
+    type: git
+    version: main

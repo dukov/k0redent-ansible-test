@@ -1,0 +1,38 @@
+plugin: k0rdent.core.k8s_nodes
+clusters:
+  #- type: capi # or adopted
+  #  name: capm3-custom-deploy-demo
+  #  namespace: kcm-system
+  #  #kubeconfig_secret:
+  #  #  name:
+  #  #  namespace:
+  #  #  key:
+  #  host_groups:
+  #    - key: node-role.kubernetes.io/worker
+  #      group_prefix: worker_
+  #    - key: node-role.kubernetes.io/gpu
+  #      group_prefix: gpu_
+  #    - key: node-role.kubernetes.io/control-plane
+  #      group_prefix: controller_
+  - type: adopted
+    name: mothership
+    namespace: kcm-system
+    kubeconfig_secret:
+      name: adopted-cluster-kubeconfig
+      namespace: kcm-system
+      key: value
+    host_groups:
+      - key: node-role.kubernetes.io/worker
+        group_prefix: worker_
+      - key: node-role.kubernetes.io/control-plane
+        group_prefix: controller_
+ansible_subnet: 10.50.50.0/24
+host_groups: []
+#  - key: cluster.x-k8s.io/deployment-name
+#    group_prefix: deployment_
+#  - key: cluster.x-k8s.io/cluster-name
+#    group_prefix: cluster_
+#  - key: cluster.x-k8s.io/control-plane
+#    group_prefix: control_plane_
+#  - key: node.k0sproject.io/role
+#    group_prefix: role_
